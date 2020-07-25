@@ -3,9 +3,34 @@ layout: post
 title:  "Effectiveness of Transfer Lerning for Singing Voice Conversion"
 date:   2020-07-25 00:00:00 +0300
 image:  spcom-2020-svc-tl/svc-title.png
-tags:   Jekyll
+tags:   transfer-learning voice-conversion source-separation
 ---
+
 Singing voice conversion (SVC) is a task of converting the perception of the source speaker's identity to the target speaker without changing lyrics and rhythm. Recent approaches in traditional voice conversion involve the use of the generative models, such as Variational Autoencoders (VAE), and Generative Adversarial Networks (GANs). However, in the case of SVC, GANs are not explored much. The only system that has been proposed in the literature uses traditional GAN on the parallel data. The parallel data collection for real scenarios (with the same background music) is not feasible. Moreover, in the presence of background music, SVC is one of the most challenging tasks as it involves the source separation of vocals from the inputs, which will have some noise. Therefore, in this paper, we propose transfer learning, and fine-tuning-based Cycle consistent GAN (CycleGAN) model for non-parallel SVC, where music source separation is done using Deep Attractor Network (DANet). We designed seven different possible systems to identify the best possible combination of transfer learning and fine-tuning. Here, we use a more challenging database, MUSDB18, as our primary dataset, and we also use the NUS-48E database to pre-train CycleGAN. We perform extensive analysis via objective and subjective measures and report that with a $4.14$ MOS score out of $5$ for naturalness, the CycleGAN model pre-trained on NUS-48E corpus performs the best compared to the other systems described in the paper.
+
+
+<body>
+    <div>
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    <audio controls src="/audios/spcom-2020-svc-tl/results/00001.wav" type="audio/x-wav;"/></audio>
+                </td>
+                <td >
+                    <audio controls src="/audios/spcom-2020-svc-tl/results/00002.wav" type="audio/x-wav;"/></audio>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<!-- <audio controls>
+ <source src="/audios/spcom-2020-svc-tl/results/00001.wav" type="audio/x-wav;"/>
+ <source src="/audios/spcom-2020-svc-tl/results/00002.wav" type="audio/x-wav;"/>
+</audio>
+</body> -->
 
 <!---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.

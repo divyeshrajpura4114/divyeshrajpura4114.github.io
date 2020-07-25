@@ -1,6 +1,9 @@
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
+# # deployment
+# host: 127.0.0.1
+# port: 8888
 
 # Build settings
 markdown: kramdown
@@ -23,7 +26,6 @@ defaults:
 
 include:
   - _pages
-
 
 # Tags
 tag_page_dir:         tag
