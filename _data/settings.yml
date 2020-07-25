@@ -1,7 +1,7 @@
 #-------------------------------
 # General Site Settings
 title: Divyesh G. Rajpura
-logo: logo.svg # You can add own logo.
+logo: logo.png # You can add own logo.
 description: This is my personal website
 
 
@@ -11,7 +11,7 @@ author:
   name: Divyesh G. Rajpura
   image: profile.png
   say-hello: Hello, I’m <strong>Divyesh G. Rajpura</strong>
-  bio:
+  bio: My area of research is Automatic Speaker Recognition (ASR) and Speaker Diarization. Recent technological advancement of Smart Devices and Voice Assistants has motivated researchers to develop a robust ASR system in adverse conditions such as noisy environment, far-field, short-duration. The key objective of my research is to develop statistical methods and machine learning-based solutions to solve this challenging problem.
 
 #-------------------------------
 # Contact links
