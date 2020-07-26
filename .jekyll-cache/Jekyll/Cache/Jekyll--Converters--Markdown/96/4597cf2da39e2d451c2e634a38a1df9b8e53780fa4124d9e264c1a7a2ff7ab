@@ -1,0 +1,438 @@
+I"ƒŒ<style>
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+/* p{
+    text-align:justify;
+}
+tbody tr:nth-child(4n) td {
+    border-bottom: 3px double;
+    padding-bottom: 20px;
+}
+tbody tr:nth-child(4n+1) td {
+    padding-top: 20px;
+}
+td[rowspan]{
+    border-bottom: 3px double;
+}
+th, td {
+padding: auto 40px auto 40px;
+text-align: center;
+}
+th {
+border-bottom: 6px double;
+} */
+</style>
+
+<p>
+Singing voice conversion (SVC) is a task of converting the perception of the source speaker's identity to the target speaker without changing lyrics and rhythm. Recent approaches in traditional voice conversion involve the use of the generative models, such as Variational Autoencoders (VAE), and Generative Adversarial Networks (GANs). However, in the case of SVC, GANs are not explored much. The only system that has been proposed in the literature uses traditional GAN on the parallel data. The parallel data collection for real scenarios (with the same background music) is not feasible. Moreover, in the presence of background music, SVC is one of the most challenging tasks as it involves the source separation of vocals from the inputs, which will have some noise. Therefore, in this paper, we propose transfer learning, and fine-tuning-based Cycle consistent GAN (CycleGAN) model for non-parallel SVC, where music source separation is done using Deep Attractor Network (DANet). We designed seven different possible systems to identify the best possible combination of transfer learning and fine-tuning. Here, we use a more challenging database, MUSDB18, as our primary dataset, and we also use the NUS-48E database to pre-train CycleGAN. We perform extensive analysis via objective and subjective measures and report that with a $4.14$ MOS score out of $5$ for naturalness, the CycleGAN model pre-trained on NUS-48E corpus performs the best compared to the other systems described in the paper.
+</p>
+
+<div class="row">
+    <table>
+        <thead>
+        <tr>
+            <th> <h4> Model </h4> </th>
+            <th> <h4> Conversion </h4> </th>
+            <th> <h4> Original </h4> </th>
+            <th> <h4> Converted </h4> </th>
+        </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td rowspan="4"> <h5> Scenario1 <br /> (MUSDB18) </h5> </td>
+                    <td> <h6> F &#8658; F </h6> </td>     
+                                        <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav1.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav2.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav3.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav4.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav1.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav2.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav3.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav4.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav5.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav6.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav5.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav6.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> F &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav7.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav8.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav7.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav8.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav9.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav10.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav11.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav12.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav9.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav10.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav11.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav12.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="4"> <h5> Scenario2 <br /> (DANet) </h5> </td>
+                    <td> <h6> F &#8658; F </h6> </td>                    
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav13.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav14.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav15.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav16.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav12.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav14.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav15.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav16.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav17.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav18.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav17.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav18.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> F &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav19.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav20.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav19.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav20.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav21.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav22.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav23.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav24.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav21.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav22.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav23.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav24.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="4"> <h5> Scenario3 <br /> (MUSDB18 + DANet) </h5> </td>
+                    <td> <h6> F &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav25.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav26.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav27.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav28.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav25.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav26.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav27.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav28.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav29.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav30.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav29.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav30.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> F &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav31.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav32.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav31.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav32.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav33.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav34.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav35.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav36.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav33.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav34.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav35.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav36.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="4"> <h5> Scenario4 <br /> (NUS48E) </h5> </td>
+                    <td> <h6> F &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav37.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav38.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav39.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav40.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav37.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav38.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav39.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav40.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav41.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav42.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav41.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav42.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> F &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav43.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav44.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav43.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav44.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav45.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav46.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav47.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav48.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav45.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav46.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav47.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav48.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="4"> <h5> Scenario5 <br /> (NUS48E + DANet) </h5> </td>
+                    <td> <h6> F &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav49.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav50.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav51.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav52.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav49.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav50.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav51.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav52.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav53.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav54.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav53.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav54.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> F &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav55.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav56.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav55.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav56.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav57.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav58.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav59.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav60.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav57.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav58.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav59.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav60.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="4"> <h5> Scenario6 <br /> (NUS48E + MUSDB18) </h5> </td>
+                    <td> <h6> F &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav61.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav62.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav63.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav64.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav61.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav62.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav63.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav64.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav65.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav66.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav65.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav66.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> F &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav67.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav68.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav67.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav68.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav69.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav70.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav71.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav72.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav69.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav70.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav71.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav72.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="4"> <h5> Scenario7 <br /> (NUS48E + MUSDB18 + DANet) </h5> </td>
+                    <td> <h6> F &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav73.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav74.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav75.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav76.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav73.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav74.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav75.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav76.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; F </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav77.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav78.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav77.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav78.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> F &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav79.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav80.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav79.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav80.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h6> M &#8658; M </h6> </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav81.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav82.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav83.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/original/wav84.mp3" type="audio/mp3" /></audio>
+                    </td>
+                    <td>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav81.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav82.mp3" type="audio/mp3" /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav83.mp3" type="audio/mp3" /> <br /></audio>
+                        <audio controls=""><source src="/audios/spcom-2020-svc-tl/results/speaker-similarity/converted/wav84.mp3" type="audio/mp3" /></audio>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+<!-- <audio controls>
+ <source src="/audios/spcom-2020-svc-tl/results/00001.wav" type="audio/x-wav;"/>
+ <source src="/audios/spcom-2020-svc-tl/results/00002.wav" type="audio/x-wav;"/>
+</audio>
+</body> -->
+
+<!---
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
+--->
+:ET
