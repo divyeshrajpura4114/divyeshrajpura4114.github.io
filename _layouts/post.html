@@ -4,28 +4,32 @@ layout: default
 <div class="container">
   <div class="post-title-box">
     <div class="row">
-      <div class="col col-10 push-2 col-11 push-t-1 col-m-12 push-m-0">
-        <span class="post__date" style="font-size:20px; text-align:center">
-          <time datetime="{{ page.date | date_to_xmlschema }}">{{page.date | date: '%b %d, %Y'}}</time>
-        </span>
+      <div class="col col-10 push-1 col-11 push-t-1 col-m-12 push-m-0" style="margin-left: 8.33%; margin-right: 8.33%">
+        <div style="text-align: center;">
+            <span class="post__date" style="font-size:20px; text-align:center">
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{page.date | date: '%b %d, %Y'}}</time>
+              </span>      
+        </div>
 
         <span class="post__title">
-            <h1 style="font-size:60px; text-align:center">{{ page.title | escape }}</h1>
+            <h1 style="font-size:40px; text-align:center">{{ page.title | escape }}</h1>
         </span>
 
         <div class="post__info">
-          <div class="post__author">
+        <div style="display: inline-block; margin: 0 auto;">
+          <div class="post__author" style="text-align: center;">
             <span>By</span>
             <a href="{{ site.baseurl }}/about/" class="author-name">{{site.data.settings.author.name}}</a>
           </div>
           
           {% if page.tags.size >= 1 %}
-          <div class="post__tags">
+          <div class="post__tags" style="text-align: center;">
             {% for tag in page.tags %}
               <a href="{{ site.baseurl }}/tag/{{ tag }}" class="post__tags-tag">{{ tag }}</a>
             {% endfor %}
           </div>
           {% endif %}
+        </div>
         </div>
       </div>
     </div>

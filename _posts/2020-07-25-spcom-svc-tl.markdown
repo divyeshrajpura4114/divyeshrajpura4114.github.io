@@ -7,9 +7,6 @@ tags:   transfer-learning voice-conversion source-separation
 ---
 <head>
 <style>
-p{
-    text-align:justify
-}
 tbody tr:nth-child(4n) td {
     border-bottom: 3px double;
     padding-bottom: 20px;
