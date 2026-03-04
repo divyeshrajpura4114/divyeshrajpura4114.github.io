@@ -1,8 +1,8 @@
 ---
 title: Positional Encodings in Transformers – Types and Comparison
 date: 2026-03-04 10:00:00 +0530
-categories: [LLM]
-tags: [Transformers, PositionalEncoding]
+categories: [Transformers, PositionalEncoding, LLM]
+tags: [Transformers, PositionalEncoding, LLM]
 author: Divyesh Rajpura
 ---
 
@@ -45,9 +45,8 @@ To a raw Transformer (without Positional Encodings), these sentences are identic
 ---
 
 ## References
-
-[Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin. 2017. Attention is All You Need. In Advances in Neural Information Processing Systems (NeurIPS).](https://arxiv.org/abs/1706.03762)
-[Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.](https://arxiv.org/abs/1810.04805)
-[Peter Shaw, Jakob Uszkoreit, and Ashish Vaswani. Self-Attention with Relative Position Representations.](https://arxiv.org/abs/1803.02155)
-[Jianlin Su, Murtadha Ahmed, Yu Lu, Shengfeng Pan, Wen Bo, and Yunfeng Liu. 2024. RoFormer: Enhanced Transformer with Rotary Position Embedding.](https://arxiv.org/abs/2104.09864)
-[Ofir Press, Noah A Smith, and Mike Lewis. 2021. Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation.](https://arxiv.org/abs/2108.12409)
+- [Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin. 2017. Attention is All You Need. In Advances in Neural Information Processing Systems (NeurIPS).](https://arxiv.org/abs/1706.03762)
+- [Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.](https://arxiv.org/abs/1810.04805)
+- [Peter Shaw, Jakob Uszkoreit, and Ashish Vaswani. Self-Attention with Relative Position Representations.](https://arxiv.org/abs/1803.02155)
+- [Jianlin Su, Murtadha Ahmed, Yu Lu, Shengfeng Pan, Wen Bo, and Yunfeng Liu. 2024. RoFormer: Enhanced Transformer with Rotary Position Embedding.](https://arxiv.org/abs/2104.09864)
+- [Ofir Press, Noah A Smith, and Mike Lewis. 2021. Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation.](https://arxiv.org/abs/2108.12409)
