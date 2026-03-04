@@ -1,19 +1,19 @@
 #  The contact options.
 
 - type: github
-  icon: "fab fa-github"
-  url: 'https://github.com/divyeshrajpura4114'
+  icon: 'fab fa-github'
+  url: 'https://github.com/divyeshrajpura4114/'
 
 - type: linkedin
   icon: 'fab fa-linkedin'
   url:  'https://www.linkedin.com/in/divyeshrajpura4114/'
 
 - type: twitter
-  icon: "fa-brands fa-x-twitter"
-  url: 'https://x.com/divyesh_rajpura'
+  icon: 'fa-brands fa-x-twitter'
+  url: 'https://x.com/divyesh_rajpura/'
 
 - type: email
-  icon: "fas fa-envelope"
+  icon: 'fas fa-envelope'
   url: "mailto:divyesh.rajpura4114@gmail.com"
   noblank: true
 
