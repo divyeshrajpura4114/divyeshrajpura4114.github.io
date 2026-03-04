@@ -1,25 +1,25 @@
 #  The contact options.
 
 - type: github
-  icon: 'fab fa-github'
-  url: 'https://github.com/divyeshrajpura4114/'
+  icon: "fab fa-github"
+  url: "https://github.com/divyeshrajpura4114"
 
 - type: linkedin
-  icon: 'fab fa-linkedin'
-  url:  'https://www.linkedin.com/in/divyeshrajpura4114/'
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/divyeshrajpura4114/"
 
-- type: twitter
-  icon: 'fa-brands fa-x-twitter'
-  url: 'https://x.com/divyesh_rajpura/'
+- type: x
+  icon: "fa-brands fa-x-twitter"
+  url: "https://x.com/divyesh_rajpura"
 
 - type: email
-  icon: 'fas fa-envelope'
-  url: "mailto:divyesh.rajpura4114@gmail.com"
+  icon: "fas fa-envelope"
+  url: "mailto:your_email@gmail.com"
   noblank: true
 
 - type: stack-overflow
-  icon: 'fab fa-stack-overflow'
-  url: 'https://stackoverflow.com/users/12563044/divyesh-rajpura'
+  icon: "fab fa-stack-overflow"
+  url: "https://stackoverflow.com/users/17342835/divyesh-rajpura"
 
 # Uncomment and complete the url below to enable more contact options
 #
