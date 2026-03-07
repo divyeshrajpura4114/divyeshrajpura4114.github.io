@@ -6,11 +6,8 @@ tags: [AgenticAI, LiteLLM]
 author: Divyesh Rajpura
 
 ---
+
 # Building AI Agents with the GAME Framework: A Complete Guide
-
-> *How Goals, Actions, Memory, and Environment come together to create intelligent, reusable AI agents*
-
----
 
 Designing an AI agent is part engineering, part philosophy. You're not just writing code — you're defining how a machine thinks, remembers, and acts. But most agent implementations end up as tangled webs of conditional logic, hardcoded prompts, and brittle function calls.
 
@@ -957,17 +954,6 @@ Same loop. Completely different behavior. This is the promise of GAME: the work 
 
 ---
 
-## What's Next?
-
-The hotel finder is a starting point. With the GAME foundation in place, natural extensions include:
-
-- **Smarter memory** — Cache Overpass results by city to avoid repeat API calls across sessions
-- **Richer actions** — Add a `get_hotel_reviews(name)` action using a reviews API to supplement OSM data
-- **Clarification step** — Add an `ask_user(question)` action so the agent can confirm ambiguous criteria before searching
-- **Hierarchical agents** — A travel planner agent that delegates to the hotel finder, a restaurant finder, and a transport agent as coordinated sub-agents
-
-But all of those extensions rest on the same foundation: a clean separation of Goals, Actions, Memory, and Environment, wired together by a loop that never changes.
-
----
-
-*The GAME framework is a practical blueprint for building AI agents that are modular, testable, and ready to evolve as the field does. Start with a simulation. Define your components clearly. Then let the loop do its job.*
+## References
+[AI Agents and Agentic AI with Python & Generative AI](https://www.coursera.org/learn/ai-agents-python)
+[LiteLLM](https://www.litellm.ai)
