@@ -422,7 +422,7 @@ Let's be direct about what changed and why it matters.
 ---
 
 ## Source code
-- [Hotel Finder Agent](https://github.com/divyeshrajpura4114/ai-learning/tree/main/agentic-ai/game-components/hotel-finder-agent)
+- [Hotel Finder Agent](https://github.com/divyeshrajpura4114/ai-learning/tree/main/agentic-ai/hotel-finder-agent)
 
 ---
 

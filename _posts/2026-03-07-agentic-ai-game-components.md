@@ -546,7 +546,7 @@ Same loop. Completely different behavior. This is the promise of GAME: the work 
 ---
 
 ## Source code
-- [Hotel Finder Agent](https://github.com/divyeshrajpura4114/ai-learning/tree/main/agentic-ai/game-components/hotel-finder-agent)
+- [Hotel Finder Agent](https://github.com/divyeshrajpura4114/ai-learning/tree/main/agentic-ai/hotel-finder-agent)
 
 ---
 
